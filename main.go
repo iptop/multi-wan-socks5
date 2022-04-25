@@ -29,6 +29,9 @@ func get_all_inter_face() []InterfaceAddress {
 		var item InterfaceAddress
 		item.NAME = inter.Name
 		var ad, _ = inter.Addrs()
+		if len(ad) < 2 {
+			continue
+		}
 		var v4 = strings.Split(ad[1].String(), "/")[0]
 		item.IPV4 = v4
 		arr = append(arr, item)
